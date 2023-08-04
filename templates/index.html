@@ -1,0 +1,35 @@
+{% extends 'home.html' %}
+{% load static %}
+
+ {% block body_block %} 
+  <style>
+   h1{
+      color: #418076;
+      font-family: arial,sans-serif;
+      font-size: 70px;
+      margin-top:20px;
+      margin-bottom:10px;
+      border-bottom:solid 3px  #00ffe7;
+      border-radius:5px;
+      width:1000px;
+    }
+   p{
+      color:  #403434fa;
+      font-family: arial;
+      font-size:35px;
+   }
+   body{
+      background-image: url('{% static "todo.jpeg" %}');
+      background-repeat: no-repeat;
+      background-size:cover;
+      background-position:center 12%;
+
+   }
+  </style>
+
+
+  <div class='one' align='center'>
+    <h1>Welcome to my todo application</h1>
+    <p>Click on Home to create your Tasks</p>
+ </div>
+  {% endblock body_block %}

@@ -1,0 +1,36 @@
+{% extends 'home.html' %}
+{% block body_block %}
+<style>
+    h1{
+        margin-bottom:50px;
+    }
+    a{
+        color:grey;
+    }
+    #one{
+        color:green;
+    }
+    #two{
+        color:red;
+    }
+    #three{
+        color:purple;
+    }
+    p{
+        font-family: monospace;
+        font-size: 20px;
+    }
+    </style>
+    
+     
+<div class="container">
+<h1>Details of Tasks</h1>
+<p id='one'>{{task.task_name}}</p>
+<p id='two'>{{task.task_description}}</p>
+<p id='three'>{{task.task_date}}</p>
+<a href="{% url 'TaskUpdateView' task.pk%}">Update</a>
+</div>
+{% endblock body_block %}
+
+
+

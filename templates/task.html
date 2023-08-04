@@ -1,0 +1,31 @@
+{% extends 'home.html' %}
+
+
+{% block body_block%}
+<style>
+ #delete{
+  color:grey;
+ }
+ #title{
+  color:green;
+ }
+ #list{
+  margin-top:50px;
+ }
+ a{
+  font-family: brand;
+ }
+  
+</style>
+ <div class="container" align ='center'>
+    <h1>Task List</h1>
+    <ul id='list'>
+  {% for a in tasks %}
+   <li><a id="title" href="{% url 'TaskDetailView' a.pk %}">{{a.task_name}}</a>---{{a.task_description}} created on {{a.task_date}}<br>  
+    <a id='delete'href= "{% url 'TaskDeleteView' a.pk %}">Delete</a>  
+  </li>
+  {% endfor %}
+  
+    </ul>
+ </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'home.html' %}
+{% block body_block %}
+<div class="container">
+<h1>Are you sure you want to delete {{object.task_name}} task??</h1>
+<a href="{% url 'TaskListView' %}">Cancel</a>
+    <form method="post">
+        {% csrf_token %}  <!-- Include the CSRF token for security -->
+        <input type="submit" value="Delete">
+    </form>
+
+
+</div>
+
+
+{% endblock body_block %}

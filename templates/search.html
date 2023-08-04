@@ -1,0 +1,15 @@
+{% extends 'home.html' %}
+{% block body_block %}
+
+   {% for r in tasks %}
+     <li>
+        <a href="{% url 'TaskDetailView' r.pk %}">{{r}}</a>
+    </li>
+   {% endfor %}
+
+
+{% endblock body_block %}
+
+
+
+
