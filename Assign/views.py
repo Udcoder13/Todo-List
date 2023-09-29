@@ -44,26 +44,29 @@ class TaskDeleteView(DeleteView):
     model = task
     template_name = "delete.html"
     success_url = reverse_lazy('TaskListView')
+
 @method_decorator(login_required, name='dispatch')
 class TaskUpdateView(UpdateView):
     model = task
     template_name = "update.html"
     form_class=forms.UpdateForm
     success_url= reverse_lazy('TaskListView')
-     
+
 class Search(TemplateView):
     model = task
     template_name = "search.html"
     def post(self, request):
         query = request.POST.get('query')
         if query:
-            results = task.objects.filter(task_name__icontains=query)
+            user= self.request.user
+            results = task.objects.filter(task_name__icontains=query,user=user)
             return render(request, 'search.html', {'tasks': results})
         else:
             return render(request, 'search.html', {'tasks': task.objects.all()})
      
-
-
+        
+     
+  
 
 
  

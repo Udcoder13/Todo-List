@@ -15,7 +15,7 @@ class UserForm(UserCreationForm):
              'password1': forms.PasswordInput(attrs={'class': 'form-control'}),
              'password2': forms.PasswordInput(attrs={'class': 'form-control'}),
          }
-class UserLoginForm( AuthenticationForm ):
+class UserLoginForm(AuthenticationForm):
       
       widgets={
            'username': forms.TextInput(attrs={'class': 'form-control'}),
